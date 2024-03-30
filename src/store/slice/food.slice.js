@@ -1,32 +1,27 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const initialState = {
-  loading: false,
-  data: null,
-  error: false,
-};
-
 const foodSlice = createSlice({
   name: "food",
-  initialState,
+  initialState: {
+    loading: false,
+    data: null,
+    error: false,
+  },
   reducers: {
-    loading: (state) => {
+    processing: (state, action) => {
       state.loading = true;
       state.data = null;
-      state.error = false;
     },
-    success: (state, action) => {
+    finish: (state, action) => {
       state.loading = false;
       state.data = action.payload;
-      state.error = false;
     },
-    error: (state, action) => {
+    wrong: (state, action) => {
       state.loading = false;
-      state.data = null;
-      state.error = action.payload;
+      state.error = true;
     },
   },
 });
 
-export const { error, loading, success } = authSlice.actions;
-export default authSlice.reducer;
+export const { processing, finish, wrong } = foodSlice.actions;
+export default foodSlice.reducer;

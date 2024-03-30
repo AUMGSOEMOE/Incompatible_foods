@@ -1,21 +1,12 @@
 import React from "react";
-import ContainerComponent from "./Container.component";
 
-const LayoutComponent = () => {
+const LayoutComponent = ({ items: { Id, FoodA, FoodB, Description } }) => {
   return (
-    <ContainerComponent>
-      <div className="flex">
-        <div className=" bg-white flex rounded-md justify-center text-lg w-[60%] items-center py-5 my-5 mr-5 ">
-          <div>FoodA + FoodB => Description</div>
-        </div>
-        <div className="bg-white w-[40%] rounded-md mt-5 ">
-          <div>
-            <h2>Catagories</h2>
-            <div>Description</div>
-          </div>
-        </div>
+    <div className=" w-full">
+      <div className="bg-white flex rounded justify-center text-lg  items-center py-5 mt-5 mr-5 ">
+        {FoodA} +{FoodB} => {Description}
       </div>
-    </ContainerComponent>
+    </div>
   );
 };
 
