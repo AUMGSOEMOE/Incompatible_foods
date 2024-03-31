@@ -1,7 +1,5 @@
-import React from "react";
-import { finish, processing } from "../store/slice/food.slice";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { api } from "../store/service/baseUrl";
 
 const SideComponent = ({ setNewData }) => {
   const { data, error, loading } = useSelector((store) => store.food);
@@ -21,7 +19,6 @@ const SideComponent = ({ setNewData }) => {
 
   const handleBtn = (i) => {
     const found = data.filter((a) => a.Description === i);
-    console.log(found);
     if (found) {
       setNewData({ newData: true, data: found });
     }
@@ -32,8 +29,13 @@ const SideComponent = ({ setNewData }) => {
       <div className="border-t py-4">
         <ul className="flex flex-col gap-4 text-sm justify-start ">
           {items.map((i, index) => (
-            <button onClick={handleBtn.bind(null, i)} key={index}>
+            <button
+              className="flex justify-between"
+              onClick={handleBtn.bind(null, i)}
+              key={index}
+            >
               <li className="hover:underline text-left">{i}</li>
+              <div className="bg-box w-5  rounded-sm"></div>
             </button>
           ))}
         </ul>

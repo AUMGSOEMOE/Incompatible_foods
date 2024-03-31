@@ -13,8 +13,6 @@ const HomePage = () => {
     data: null,
   });
 
-  console.log(newData.data);
-
   useEffect(() => {
     const food = async () => {
       try {
