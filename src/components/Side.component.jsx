@@ -35,7 +35,6 @@ const SideComponent = ({ setNewData }) => {
               key={index}
             >
               <li className="hover:underline text-left">{i}</li>
-              <div className="bg-box w-5  rounded-sm"></div>
             </button>
           ))}
         </ul>
