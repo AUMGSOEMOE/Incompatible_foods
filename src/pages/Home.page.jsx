@@ -43,12 +43,14 @@ const HomePage = () => {
         <div className="flex">
           <div className=" w-[70%] ">
             {newData.newData ? (
+              //individual
               <>
                 {newDataFoodList.map((i) => (
                   <Layout key={i.Id} items={i} />
                 ))}
               </>
             ) : (
+              //all
               <>
                 {foodList?.map((i) => (
                   <Layout key={i.Id} items={i} />
